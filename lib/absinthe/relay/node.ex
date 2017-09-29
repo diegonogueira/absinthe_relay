@@ -192,6 +192,9 @@ defmodule Absinthe.Relay.Node do
         end
     end
   end
+  defp do_from_global_id([""], _, _schema) do
+    {:ok, %{type: nil, id: nil}}
+  end
   defp do_from_global_id(_, decoded, _schema) do
     {:error, "Could not extract value from decoded ID `#{inspect decoded}'"}
   end

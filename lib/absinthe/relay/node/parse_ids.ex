@@ -316,7 +316,7 @@ defmodule Absinthe.Relay.Node.ParseIDs do
     {:ok, nil}
   end
   defp check_result(%{type: type} = result, %Rule{expected_types: types} = rule, resolution) do
-    if type in types do
+    if type in types ++ [nil] do
       {:ok, result}
     else
       type_name =
