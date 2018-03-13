@@ -160,10 +160,6 @@ defmodule Absinthe.Relay.Node do
   """
 
   def from_global_id(nil, schema) do
-    IO.puts "============="
-    IO.inspect schema
-    IO.puts "============="
-
     do_from_global_id([""], nil, schema)
   end
   def from_global_id(global_id, schema) do
