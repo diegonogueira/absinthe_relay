@@ -158,7 +158,14 @@ defmodule Absinthe.Relay.Node do
   {:error, "Type `Item' is not a valid node type"}
   ```
   """
-  @spec from_global_id(binary, atom) :: {:ok, %{type: atom, id: binary}} | {:error, binary}
+
+  def from_global_id(nil, schema) do
+    IO.puts "============="
+    IO.inspect schema
+    IO.puts "============="
+
+    do_from_global_id([""], nil, schema)
+  end
   def from_global_id(global_id, schema) do
     case Base.decode64(global_id) do
       {:ok, decoded} ->
